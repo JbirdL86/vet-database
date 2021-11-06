@@ -81,3 +81,79 @@ where y.max_animal = (select max(x.count_animals)
 		from owners
 		join animals on owners.id = animals.owner_id
 		group by full_name) x);
+
+select a.name, v.date_of_visit 
+from animals a 
+join visits v on a.id = v.animals_id
+join vets v2 on v.vets_id = v2.id
+where v2.name = 'William Tatcher'
+and v.date_of_visit = (select max(visits.date_of_visit)
+		from animals  
+		join visits on animals.id = visits.animals_id
+		join vets on visits.vets_id = vets.id
+		where vets.name = 'William Tatcher');
+
+select count(distinct v.animals_id)
+from visits v
+join vets v2 on v.vets_id = v2.id
+where v2."name" = 'Stephanie Mendez';
+
+select v.name, s2.name
+from vets v 
+left join specializations s on v.id = s.vets_id 
+left join species s2 on s.species_id = s2.id;
+
+select a.name
+from animals a 
+join visits v on a.id = v.animals_id
+join vets v2 on v.vets_id = v2.id
+where v2.name = 'Stephanie Mendez' 
+and v.date_of_visit between '20200401' and '20200830';
+
+select resmax.name, resmax.animal_visits
+from (select a.name, count(v.animals_id) as animal_visits
+	from animals a 
+	join visits v on a.id = v.animals_id
+	group by a.name) as resmax
+where resmax.animal_visits = (select max(rescount.visits)
+	from (select count(v.animals_id) as visits
+		from animals a 
+		join visits v on a.id = v.animals_id
+		group by a.name) as rescount);
+
+select a.name, v.date_of_visit 
+from animals a
+join visits v on a.id = v.animals_id
+join vets v2 on v.vets_id = v2.id
+where v2.name = 'Maisy Smith'
+and v.date_of_visit = (select min(visits.date_of_visit)
+	from animals a2 
+	join visits on a2.id = visits.animals_id
+	join vets on visits.vets_id = vets.id
+	where vets.name = 'Maisy Smith');
+
+select a, v2, v.date_of_visit 
+from animals a
+join visits v on a.id = v.animals_id
+join vets v2 on v.vets_id = v2.id
+where v.date_of_visit = (select max(visits.date_of_visit)
+	from animals a2 
+	join visits on a2.id = visits.animals_id
+	join vets on visits.vets_id = vets.id);
+
+select count(*)
+from visits v
+left join animals a on a.id = v.animals_id
+left join vets v2 on v2.id = v.vets_id 
+where a.species_id not in (select a.species_id 
+	from specializations s
+	where s.vets_id = v2.id)
+
+select s1.name, count(*)
+from visits v
+left join animals a on a.id = v.animals_id
+left join vets v2 on v2.id = v.vets_id 
+left join species s1 on a.species_id = s1.id 
+where v2.name = 'Maisy Smith'
+group by s1.name
+
