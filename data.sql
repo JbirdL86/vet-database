@@ -19,8 +19,8 @@ INSERT INTO owners values(default, 'Melody Pond', 77);
 INSERT INTO owners values(default, 'Dean Winchester', 14);
 INSERT INTO owners values(default, 'Jodie Whittaker', 38);
 
-INSERT INTO species values('Pokemon');
-INSERT INTO species values ('Digimon');
+INSERT INTO species values(default, 'Pokemon');
+INSERT INTO species values (default, 'Digimon');
 
 UPDATE animals
 SET species_id = species.id
@@ -71,25 +71,25 @@ INSERT INTO vets values(default, 'Maisy Smith', 26,'20190117');
 INSERT INTO vets values(default, 'Stephanie Mendez', 64,'19810504');
 INSERT INTO vets values(default, 'Jack Harkness', 38,'20080608');
 
-INSERT INTO specializations (vets_id, soecies_id)
+INSERT INTO specializations (vets_id, species_id)
 SELECT v.id, s.id
 FROM vets v
 JOIN species s
 ON v.name = 'William Tatcher' AND s.name = 'Pokemon';
 
-INSERT INTO specializations (vets_id, soecies_id)
+INSERT INTO specializations (vets_id, species_id)
 SELECT v.id, s.id
 FROM vets v
 JOIN species s
 ON v.name = 'Stephanie Mendez' AND s.name = 'Pokemon';
 
-INSERT INTO specializations (vets_id, soecies_id)
+INSERT INTO specializations (vets_id, species_id)
 SELECT v.id, s.id
 FROM vets v
 JOIN species s
 ON v.name = 'Stephanie Mendez' AND s.name = 'Digimon';
 
-INSERT INTO specializations (vets_id, soecies_id)
+INSERT INTO specializations (vets_id, species_id)
 SELECT v.id, s.id
 FROM vets v
 JOIN species s
@@ -217,8 +217,8 @@ ON v.name = 'William Tatcher' AND a.name = 'Blossom';
 
 
 -- This will add 3.594.280 visits considering you have 10 animals, 4 vets, and it will use around ~87.000 timestamps (~4min approx.)
-INSERT INTO visits (animal_id, vet_id, date_of_visit)
-SELECT * FROM (SELECT id FROM animals) animal_ids,
+INSERT INTO visits (animals_id, vets_id, date_of_visit)
+SELECT * FROM (SELECT id FROM animals) animals_ids,
 (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
 
 -- This will add 2.500.000 owners with full_name = 'Owner <X>' and email = 'owner_<X>@email.com' (~2min approx.)
