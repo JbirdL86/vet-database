@@ -4,6 +4,8 @@
 
 > This project is a database related project at Microverse. It implements a relational database to create the structure of a vet clinic. It contains instructions to create tables, instructions to fill those tables and queries to get information from it.
 
+![screenshot](./vetClinic.png)
+
 ## Built With
 
 - PostgreSQL
