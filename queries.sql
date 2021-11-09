@@ -158,7 +158,7 @@ where v2.name = 'Maisy Smith'
 group by s1.name
 
 
-SELECT COUNT(*) FROM visits where animals_id = 4;
-SELECT * FROM visits where vets_id = 2;
-SELECT * FROM owners where email = 'owner_18327@mail.com';
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
 
