@@ -26,7 +26,17 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@twitterhandle](https://twitter.com/JuanLui06498455)
 - Linkedin: [linkedin](https://www.linkedin.com/in/juan-luis-0551921aa/)
 
+👤 **Juan Felipe Gomez Tobon**
 
+- GitHub: [@githubhandle](https://github.com/Felipeg005/)
+- Twitter: [@twitterhandle](https://twitter.com/JuanFGT05)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/juan-felipe-gomez-tobon/)
+
+👤 **Laylo Khodjaeva**
+
+- GitHub: [@Laylo309](https://github.com/Laylo309)
+- Twitter: [@Laylo](https://twitter.com/home?lang=en)
+- LinkedIn: [LayloKhodjaeva](https://www.linkedin.com/in/laylo-khodjaeva-05a972207/)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!

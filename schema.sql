@@ -55,5 +55,11 @@ CREATE TABLE visits (
 	animals_id INT NULL,
 	date_of_visit DATE NULL,
 	FOREIGN KEY (vets_id) REFERENCES vets (id),
-	FOREIGN KEY (animals_id) REFERENCES animals (id),
+	FOREIGN KEY (animals_id) REFERENCES animals (id)
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX OUR_INDEX ON visits (animals_id);
+CREATE INDEX OUR_INDEX_1 ON visits (vets_id);
+CREATE INDEX ON owners (email);
